@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>视频播放器</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainVerticalLayout">
+    <item>
+     <!-- 视频和进度条容器 -->
+     <widget class="QWidget" name="videoAndProgressContainer" native="true">
+      <layout class="QVBoxLayout" name="videoProgressLayout">
+       <item>
+        <!-- 视频显示区域 -->
+        <widget class="QWidget" name="videoContainer" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>640</width>
+           <height>400</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="videoContainerLayout"/>
+        </widget>
+       </item>
+       <item>
+        <!-- 进度条和时间显示 -->
+        <layout class="QHBoxLayout" name="progressLayout">
+         <item>
+          <widget class="QLabel" name="labelTime">
+           <property name="text">
+            <string>00:00:00</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="sliderPosition">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelDuration">
+           <property name="text">
+            <string>/ 00:00:00</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    
+    <item>
+     <!-- 主控制按钮区域 -->
+     <layout class="QHBoxLayout" name="mainControlsLayout">
+      <item>
+       <widget class="QPushButton" name="btnOpen">
+        <property name="text">
+         <string>打开</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPlay">
+        <property name="text">
+         <string>播放</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPause">
+        <property name="text">
+         <string>暂停</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnStop">
+        <property name="text">
+         <string>停止</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      
+      <!-- 用户控制按钮 -->
+      <item>
+       <widget class="QPushButton" name="btnUserProfile">
+        <property name="text">
+         <string>用户信息</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnHistory">
+        <property name="text">
+         <string>播放历史</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnLogout">
+        <property name="text">
+         <string>退出登录</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      
+      <item>
+       <!-- 弹簧 -->
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    
+    <item>
+     <!-- 网络播放控制区域 -->
+     <layout class="QHBoxLayout" name="networkControlsLayout">
+      <item>
+       <widget class="QLineEdit" name="txtNetworkUrl">
+        <property name="placeholderText">
+         <string>输入网络视频URL (http://, rtsp://, rtmp://)</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPlayNetwork">
+        <property name="text">
+         <string>播放网络视频</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>35</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblNetworkStatus">
+        <property name="text">
+         <string>就绪</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    
+    <item>
+     <!-- 音量控制区域 -->
+     <layout class="QHBoxLayout" name="volumeControlsLayout">
+      <item>
+       <widget class="QLabel" name="labelVolume">
+        <property name="text">
+         <string>音量: 50%</string>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="sliderVolume">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      
+      <item>
+       <!-- 弹簧，使音量控制靠左 -->
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
